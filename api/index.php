@@ -16,8 +16,8 @@ $options = [
     "secure" => false,
     "algorithm" => ["HS256"],
     "secret" => JWT_SECRET,
-    "path"=> ["/api"],
-    "ignore" => ["/api/login", "/api/register"],
+    "path"=> ["/"],
+    "ignore" => ["/login", "/register"],
     "error" => function ($response, $arguments) {
         $data = array('ERREUR' => 'Connexion', 'ERREUR' => 'JWT Non valide');
         $response = $response->withStatus(401);
@@ -27,6 +27,12 @@ $options = [
 ];
 
 $app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
+    $name = $args['name'];
+    $response->getBody()->write("Hello, $name");
+    return $response;
+});
+
+$app->get('/login/{name}', function (Request $request, Response $response, array $args) {
     $name = $args['name'];
     $response->getBody()->write("Hello, $name");
     return $response;
