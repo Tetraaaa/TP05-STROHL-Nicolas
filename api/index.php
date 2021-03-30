@@ -32,11 +32,22 @@ $app->get('/hello/{name}', function (Request $request, Response $response, array
     return $response;
 });
 
-$app->get('/login/{name}', function (Request $request, Response $response, array $args) {
-    $name = $args['name'];
-    $response->getBody()->write("Hello, $name");
+$app->get('/login', function (Request $request, Response $response, array $args) {
+    
+    $issuedAt = time();
+    $expirationTime = $issuedAt + 600;
+    $payload = [
+    'username' => "testas",
+    'iat' => $issuedAt,
+    'exp' => $expirationTime
+    ];
+
+    $token_jwt = JWT::encode($payload,JWT_SECRET, "HS256");
+    $response = $response->withHeader("Authorization", "Bearer {$token_jwt}");
+
     return $response;
 });
 
+$app->addErrorMiddleware(true, true, true);
 $app->add(new Tuupola\Middleware\JwtAuthentication($options));
 $app->run();
