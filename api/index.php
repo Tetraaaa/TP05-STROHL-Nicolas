@@ -52,7 +52,7 @@ $app->post('/login', function (Request $request, Response $response, array $args
 
 $app->get('/products', function (Request $request, Response $response, array $args) {
 
-    $products = json_decode(`[
+    $products = `[
         {"id":1, "name":"Porte éponge en laiton", "price":30},
         {"id":2, "name":"Sac de cinq kilos de sel", "price":15},
         {"id":3, "name":"Bouteille d'eau remplie d'eau", "price":1},
@@ -61,7 +61,7 @@ $app->get('/products', function (Request $request, Response $response, array $ar
         {"id":6, "name":"Courroie de distribution + pompe à eau", "price":80},
         {"id":7, "name":"Naruto Tome 12", "price":5},
         {"id":8, "name":"Barbecue à charbon de bois en acier inoxydable", "price":150}
-    ]`);    
+    ]`;    
     return $response->withJson($products, 201);
 });
 
