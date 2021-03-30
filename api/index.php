@@ -32,7 +32,7 @@ $app->get('/hello/{name}', function (Request $request, Response $response, array
     return $response;
 });
 
-$app->get('/login', function (Request $request, Response $response, array $args) {
+$app->post('/login', function (Request $request, Response $response, array $args) {
     
     $issuedAt = time();
     $expirationTime = $issuedAt + 600;
