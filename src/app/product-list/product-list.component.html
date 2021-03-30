@@ -1,0 +1,16 @@
+<table>
+    <thead>
+        <tr>
+            <th>Liste de produits</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{product.name}}</td>
+            <td>{{product.price}}€</td>
+            <td><button [routerLink]="['/details', product.id]">Page produit</button></td>
+            <td><button (click)="onProductClicked(product)">Ajouter au panier</button></td>
+        </tr>
+    </tbody>
+</table>
+
