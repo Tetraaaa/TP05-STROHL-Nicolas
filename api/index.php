@@ -62,8 +62,7 @@ $app->get('/products', function (Request $request, Response $response, array $ar
         {"id":7, "name":"Naruto Tome 12", "price":5},
         {"id":8, "name":"Barbecue à charbon de bois en acier inoxydable", "price":150}
     ]`);    
-    $response->getBody()->write($products);
-    return $response;
+    return $response->withJson($products, 201);
 });
 
 $app->addErrorMiddleware(true, true, true);
