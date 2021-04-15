@@ -1,0 +1,14 @@
+<main>
+    <div *ngIf="error"></div>
+    <label for="nom">Nom:</label><br>
+    <input [(ngModel)]="nom" required type="text" name="nom"><br>
+    <label for="prenom">Prénom:</label><br>
+    <input [(ngModel)]="prenom" required type="text" id="prenom" name="prenom"><br>
+    <label for="username">Nom d'utilisateur:</label><br>
+    <input [(ngModel)]="username" type="text" id="username" name="username"><br>
+    <label for="password">Mot de passe:</label><br>
+    <input [(ngModel)]="password" type="password" minlength="4" id="password" name="password"><br>
+    <label for="password2">Confirmer le mot de passe:</label><br>
+    <input [(ngModel)]="password2" type="password" minlength="4" id="password2" name="password2"><br>
+    <button (click)="onSubmit()">S'inscrire</button>
+</main>

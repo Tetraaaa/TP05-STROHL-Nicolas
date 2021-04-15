@@ -14,6 +14,7 @@ import { BasketState } from 'state/Basket';
 import { HeaderComponent } from './header/header.component';
 import { PanierComponent } from './panier/panier.component';
 import { DetailComponent } from './detail/detail.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DetailComponent } from './detail/detail.component';
     SearchEngineComponent,
     HeaderComponent,
     PanierComponent,
-    DetailComponent
+    DetailComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
