@@ -18,7 +18,7 @@ $options = [
     "secure" => false,
     "algorithm" => ["HS256"],
     "secret" => JWT_SECRET,
-    "path"=> ["/"],
+    "path"=> ["/api"],
     "ignore" => ["/login", "/register"],
     "error" => function ($response, $arguments) {
         $data = array('ERREUR' => 'Connexion', 'ERREUR' => 'JWT Non valide');
@@ -28,13 +28,13 @@ $options = [
     }
 ];
 
-$app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
+$app->get('/api/hello/{name}', function (Request $request, Response $response, array $args) {
     $name = $args['name'];
     $response->getBody()->write("Hello, $name");
     return $response;
 });
 
-$app->post('/login', function (Request $request, Response $response, array $args) {
+$app->post('/api/login', function (Request $request, Response $response, array $args) {
     
     $issuedAt = time();
     $expirationTime = $issuedAt + 600;
@@ -50,7 +50,7 @@ $app->post('/login', function (Request $request, Response $response, array $args
     return $response;
 });
 
-$app->get('/products', function (Request $request, Response $response, array $args) {
+$app->get('/api/products', function (Request $request, Response $response, array $args) {
     $products = `[
         {"id":1, "name":"Porte éponge en laiton", "price":30},
         {"id":2, "name":"Sac de cinq kilos de sel", "price":15},
