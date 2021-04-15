@@ -51,7 +51,6 @@ $app->post('/login', function (Request $request, Response $response, array $args
 });
 
 $app->get('/products', function (Request $request, Response $response, array $args) {
-
     $products = `[
         {"id":1, "name":"Porte éponge en laiton", "price":30},
         {"id":2, "name":"Sac de cinq kilos de sel", "price":15},
@@ -61,9 +60,13 @@ $app->get('/products', function (Request $request, Response $response, array $ar
         {"id":6, "name":"Courroie de distribution + pompe à eau", "price":80},
         {"id":7, "name":"Naruto Tome 12", "price":5},
         {"id":8, "name":"Barbecue à charbon de bois en acier inoxydable", "price":150}
-    ]`;    
+    ]`;  
+    $products = [
+        ["id"=>1, "name"=>"Porté éponge en laiton", "price"=>30]
+    ];
+  
     $response = $response->withHeader("Content-Type", "application/json;charset=utf-8");
-    $response->getBody()->write($products);
+    $response->getBody()->write(json_encode($products));
     return $response;
 });
 
