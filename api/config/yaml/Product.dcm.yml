@@ -9,7 +9,7 @@ Product:
                 unsigned: false
             id: true
             generator:
-                strategy: SEQUENCE
+                strategy: IDENTITY
     fields:
         titre:
             type: string
