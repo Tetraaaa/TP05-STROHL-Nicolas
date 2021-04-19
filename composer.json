@@ -9,12 +9,12 @@
         "laminas/laminas-diactoros": "^2.4",
         "firebase/php-jwt": "^5.2",
         "tuupola/slim-jwt-auth": "^3.5",
-        "doctrine/orm": "^2.6.2",
-        "symfony/yaml": "2.*",
+        "doctrine/orm": "^2.8",
+        "symfony/yaml": "^5.2",
         "slim/http": "^1.2"
     },
     "autoload": {
-        "psr-0": {"": "src/modeles"}
+        "psr-0": {"": "./api/models"}
 
     }
 }
