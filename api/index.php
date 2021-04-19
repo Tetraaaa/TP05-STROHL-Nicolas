@@ -51,6 +51,32 @@ $app->post('/api/login', function (Request $request, Response $response, array $
     return $response;
 });
 
+$app->get('/api/init', function (Request $request, Response $response, array $args) {
+
+    global $entityManager;
+    $products = [
+        ["id"=>1, "name"=>"Porte éponge en laiton", "price"=>30],
+        ["id"=>2, "name"=>"Sac de cinq kilos de sel", "price"=>30],
+        ["id"=>3, "name"=>"Bouteille d'eau remplie d'eau", "price"=>1],
+        ["id"=>4, "name"=>"Pass navigo d'occasion", "price"=>5],
+        ["id"=>5, "name"=>"Paquet de 10 Twix presque neuf", "price"=>4],
+        ["id"=>6, "name"=>"Courroie de distribution + pompe à eau", "price"=>80],
+        ["id"=>7, "name"=>"Naruto Tome 12", "price"=>5],
+        ["id"=>8, "name"=>"Barbecue à charbon de bois en acier inoxydable", "price"=>15]
+    ];
+
+    foreach($products as $p)
+    {
+        $product = new Product();
+        
+        $product->setTitre($p["name"]);
+        $product->setPrix($p["price"]);
+        $product->setDescription("");
+        $entityManager->persist($product);
+    }
+    $entityManager->flush();
+});
+
 $app->get('/api/products', function (Request $request, Response $response, array $args) {
 
     global $entityManager;
