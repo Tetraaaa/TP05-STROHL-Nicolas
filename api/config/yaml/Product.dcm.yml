@@ -1,6 +1,6 @@
 Product:
     type: entity
-    table: catalogue
+    table: product
     id:
         id:
             type: integer

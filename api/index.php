@@ -20,7 +20,7 @@ $options = [
     "algorithm" => ["HS256"],
     "secret" => JWT_SECRET,
     "path"=> ["/api"],
-    "ignore" => ["/login", "/register"],
+    "ignore" => ["/api/login", "/api/register"],
     "error" => function ($response, $arguments) {
         $data = array('ERREUR' => 'Connexion', 'ERREUR' => 'JWT Non valide');
         $response = $response->withStatus(401);
@@ -57,6 +57,7 @@ $app->get('/api/products', function (Request $request, Response $response, array
     $productRepository = $entityManager->getRepository('Product');
     $products = $productRepository->findAll();
 
+    $data = [];
     foreach ($products as $p) {
         $elem = [];
         $elem ["id"] = $p->getId();

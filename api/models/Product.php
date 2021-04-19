@@ -5,9 +5,9 @@
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Catalogue
+ * Product
  *
- * @ORM\Table(name="catalogue")
+ * @ORM\Table(name="product")
  * @ORM\Entity
  */
 class Product
@@ -18,7 +18,7 @@ class Product
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="catalogue_id_seq", allocationSize=1, initialValue=1)
+     * @ORM\SequenceGenerator(sequenceName="product_id_seq", allocationSize=1, initialValue=1)
      */
     private $id;
 
@@ -59,7 +59,7 @@ class Product
      *
      * @param string|null $titre
      *
-     * @return Catalogue
+     * @return Product
      */
     public function setTitre($titre = null)
     {
@@ -83,7 +83,7 @@ class Product
      *
      * @param float|null $prix
      *
-     * @return Catalogue
+     * @return Product
      */
     public function setPrix($prix = null)
     {
