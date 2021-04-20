@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +15,8 @@ import { HeaderComponent } from './header/header.component';
 import { PanierComponent } from './panier/panier.component';
 import { DetailComponent } from './detail/detail.component';
 import { RegisterComponent } from './register/register.component';
+import { ConnexionComponent } from './connexion/connexion.component';
+import { ApiHttpInterceptor } from './api-http-interceptor';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { RegisterComponent } from './register/register.component';
     HeaderComponent,
     PanierComponent,
     DetailComponent,
-    RegisterComponent
+    RegisterComponent,
+    ConnexionComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,9 @@ import { RegisterComponent } from './register/register.component';
       developmentMode:!environment.production
     })
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS, useClass:ApiHttpInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
