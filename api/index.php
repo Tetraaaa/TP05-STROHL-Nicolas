@@ -69,8 +69,8 @@ $app->get('/api/init', function (Request $request, Response $response, array $ar
 
     global $entityManager;
 
-    $entityManager->createNativeQuery("TRUNCATE TABLE Product").executeUpdate();
-    $entityManager->createNativeQuery("TRUNCATE TABLE Account").executeUpdate();
+    $entityManager->createNativeQuery("TRUNCATE TABLE Product", new \Doctrine\ORM\Query\ResultSetMapping())->getResult();
+    $entityManager->createNativeQuery("TRUNCATE TABLE Account", new \Doctrine\ORM\Query\ResultSetMapping())->getResult();
 
     $products = [
         ["id"=>1, "name"=>"Porte éponge en laiton", "price"=>30],
