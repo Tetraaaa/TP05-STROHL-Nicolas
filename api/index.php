@@ -54,6 +54,10 @@ $app->post('/api/login', function (Request $request, Response $response, array $
 $app->get('/api/init', function (Request $request, Response $response, array $args) {
 
     global $entityManager;
+
+    $entityManager->createNativeQuery("TRUNCATE TABLE Product").executeUpdate();
+    $entityManager->createNativeQuery("TRUNCATE TABLE Account").executeUpdate();
+
     $products = [
         ["id"=>1, "name"=>"Porte éponge en laiton", "price"=>30],
         ["id"=>2, "name"=>"Sac de cinq kilos de sel", "price"=>30],
@@ -74,6 +78,11 @@ $app->get('/api/init', function (Request $request, Response $response, array $ar
         $product->setDescription("");
         $entityManager->persist($product);
     }
+
+    $account = new Account();
+    $account->setLogin("tetra");
+    $account->setPassword("rootroot");
+    $entityManager->persist($account);
     $entityManager->flush();
 });
 
