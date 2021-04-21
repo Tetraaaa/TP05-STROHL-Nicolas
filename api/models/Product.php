@@ -17,8 +17,7 @@ class Product
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="product_id_seq", allocationSize=1, initialValue=1)
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
@@ -36,7 +35,7 @@ class Product
      */
     private $prix;
 
-        /**
+    /**
      * @var string|null
      *
      * @ORM\Column(name="description", type="string", length=255, nullable=true)
@@ -102,7 +101,7 @@ class Product
         return $this->prix;
     }
 
-        /**
+    /**
      * Set description.
      *
      * @param string|null $description
