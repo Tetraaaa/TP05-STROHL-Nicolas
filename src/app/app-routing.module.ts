@@ -11,7 +11,6 @@ const routes: Routes = [
   {path:"details/:id", component:DetailComponent, pathMatch:"full", canActivate:[AuthGuard]},
   {path:"catalogue", component:CatalogComponent, pathMatch:"full", canActivate:[AuthGuard]},
   {path:"", component:ConnexionComponent, pathMatch:"full"},
-  {path:"**", redirectTo:""},
 ];
 
 @NgModule({
