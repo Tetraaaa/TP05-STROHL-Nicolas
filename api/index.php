@@ -98,6 +98,8 @@ $app->get('/api/init', function (Request $request, Response $response, array $ar
     $account->setPassword("rootroot");
     $entityManager->persist($account);
     $entityManager->flush();
+    return $response->withJson("Base initialisée.", 200);
+
 });
 
 $app->get('/api/products', function (Request $request, Response $response, array $args) {
