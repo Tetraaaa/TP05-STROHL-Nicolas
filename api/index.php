@@ -45,7 +45,7 @@ $app->post('/api/login', function (Request $request, Response $response, array $
         $currentAccount = $accountRepository->findOneBy(["login"=> $parsedBody["login"]]);
         if($currentAccount)
         {
-            if($currentAccount["password"] == $parsedBody["password"])
+            if($currentAccount->getPassword() == $parsedBody["password"])
             {
                 $issuedAt = time();
                 $expirationTime = $issuedAt + 600;
