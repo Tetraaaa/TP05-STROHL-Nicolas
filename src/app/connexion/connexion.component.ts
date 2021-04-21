@@ -1,22 +1,24 @@
-  
+
 import { Component, OnInit } from '@angular/core';
-import {FormulaireService} from '../formulaire.service'
+import { FormulaireService } from '../formulaire.service'
 @Component({
-  selector: 'app-connexion',
-  templateUrl: './connexion.component.html',
-  styleUrls: ['./connexion.component.less']
+    selector: 'app-connexion',
+    templateUrl: './connexion.component.html',
+    styleUrls: ['./connexion.component.less']
 })
 export class ConnexionComponent implements OnInit {
 
-  login : string = "";
-  password : string = "";
+    login: string = "";
+    password: string = "";
 
-  constructor(private formulaireService : FormulaireService ) { }
+    constructor(private formulaireService: FormulaireService) { }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
-  connexion () {
-    this.formulaireService.login (this.login,this.password).subscribe (flux => console.log (flux));
-  }
+    connexion() {
+        this.formulaireService.login(this.login, this.password).subscribe((flux) => {
+            console.log(JSON.stringify(flux));
+        });
+    }
 }
