@@ -42,7 +42,7 @@ $app->post('/api/login', function (Request $request, Response $response, array $
     if(array_key_exists("login", $parsedBody) && array_key_exists("password", $parsedBody))
     {
         $accountRepository = $entityManager->getRepository("Account");
-        $currentAccount = $entityManager->findOneBy(["login"=> $parsedBody["login"]]);
+        $currentAccount = $accountRepository->findOneBy(["login"=> $parsedBody["login"]]);
         if($currentAccount)
         {
             if($currentAccount["password"] == $parsedBody["password"])
