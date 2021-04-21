@@ -36,19 +36,33 @@ $app->get('/api/hello/{name}', function (Request $request, Response $response, a
 });
 
 $app->post('/api/login', function (Request $request, Response $response, array $args) {
-    
-    $issuedAt = time();
-    $expirationTime = $issuedAt + 600;
-    $payload = [
-    'username' => "testas",
-    'iat' => $issuedAt,
-    'exp' => $expirationTime
-    ];
+    global $entityManager;
 
-    $token_jwt = JWT::encode($payload,JWT_SECRET, "HS256");
-    $response = $response->withHeader("Authorization", "Bearer {$token_jwt}");
-
-    return $response;
+    $parsedBody = $request->getParsedBody();
+    if(array_key_exists("login", $parsedBody) && array_key_exists("password", $parsedBody))
+    {
+        $accountRepository = $entityManager->getRepository("Account");
+        $currentAccount = $entityManager->findOneBy(["login"=> $parsedBody["login"]]);
+        if($currentAccount)
+        {
+            if($currentAccount["password"] == $parsedBody["password"])
+            {
+                $issuedAt = time();
+                $expirationTime = $issuedAt + 600;
+                $payload = [
+                'username' => $parsedBody["login"],
+                'iat' => $issuedAt,
+                'exp' => $expirationTime
+                ];
+            
+                $token_jwt = JWT::encode($payload,JWT_SECRET, "HS256");
+                $response = $response->withHeader("Authorization", "Bearer {$token_jwt}");
+            
+                return $response;
+            }
+        }   
+    }
+    return $response->withJson("Identifiants incorrects.", 400);
 });
 
 $app->get('/api/init', function (Request $request, Response $response, array $args) {
