@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
     this.products$ = this.store.select(BasketState.getProducts);
     this.products$.subscribe((item) => {
       this.productsLength = item.length;
-      this.totalPrice = item.reduce((a, b) => a+b.price,0);
+      this.totalPrice = item.reduce((a, b) => a+b.prix,0);
     });
   }
 

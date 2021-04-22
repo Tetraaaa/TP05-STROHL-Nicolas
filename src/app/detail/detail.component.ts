@@ -16,7 +16,7 @@ export class DetailComponent implements OnInit {
 
   id:number;
   
-  productDetails:{id:number, name:string, price:number, description:string}
+  productDetails:{id:number, nom:string, prix:number, description:string}
   constructor(private formulaireService:FormulaireService, private route:ActivatedRoute, private store:Store) { }
 
   ngOnInit(): void {

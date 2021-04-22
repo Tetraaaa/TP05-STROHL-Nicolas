@@ -7,8 +7,8 @@
         </thead>
         <tbody>
             <tr *ngFor="let product of products">
-                <td>{{product.name}}</td>
-                <td>{{product.price}}€</td>
+                <td>{{product.titre}}</td>
+                <td>{{product.prix}}€</td>
                 <td><button (click)="onProductRemoved(product)">Retirer du panier</button></td>
             </tr>
         </tbody>
