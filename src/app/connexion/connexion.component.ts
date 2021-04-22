@@ -11,6 +11,7 @@ export class ConnexionComponent implements OnInit {
 
     login: string = "";
     password: string = "";
+    errorMessage:string = "";
 
     constructor(private formulaireService: FormulaireService, private router: Router) { }
 
@@ -19,10 +20,9 @@ export class ConnexionComponent implements OnInit {
 
     connexion() {
         this.formulaireService.login(this.login, this.password).subscribe((flux) => {
-            if(!flux)
-            {
-                this.router.navigate(["/catalogue"]);
-            }
+            this.router.navigate(["/catalogue"]);
+        }, (error) => {
+            this.errorMessage = "Identifiants incorrects."
         });
     }
 }

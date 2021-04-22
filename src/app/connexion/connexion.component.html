@@ -1,5 +1,6 @@
 <section>
     <h3>Se connecter</h3>
+    <p class="errorMessage">{{errorMessage}}</p>
     <label>Nom d'utilisateur</label> 
     <input [(ngModel)]="login">
     <br/>
@@ -8,6 +9,6 @@
      <input [(ngModel)]="password">
     
     <br/>
-    <button (click) ="connexion ()">Connexion</button>
+    <button (click) ="connexion()">Connexion</button>
 </section>
 
