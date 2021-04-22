@@ -35,6 +35,15 @@ $app->get('/api/hello/{name}', function (Request $request, Response $response, a
     return $response;
 });
 
+$app->get('/api/product/{id}', function (Request $request, Response $response, array $args) {
+    global $entityManager;
+    $id = $args['id'];
+    $productRepository = $entityManager->getRepository("Product");
+    $product = $productRepository->findOneBy(["id"=> $id]);
+    $productArray = ["id" => $product->getId(), "titre"=>$product->getTitre(), "prix"=>$product->getPrix(), "description"=>$product->getDescription()];
+    return $response->withJson($productArray);
+});
+
 $app->post('/api/login', function (Request $request, Response $response, array $args) {
     global $entityManager;
 
