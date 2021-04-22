@@ -82,14 +82,14 @@ $app->get('/api/init', function (Request $request, Response $response, array $ar
     $entityManager->createNativeQuery("TRUNCATE TABLE Account", new \Doctrine\ORM\Query\ResultSetMapping())->getResult();
 
     $products = [
-        ["id"=>1, "name"=>"Porte éponge en laiton", "price"=>30],
-        ["id"=>2, "name"=>"Sac de cinq kilos de sel", "price"=>30],
-        ["id"=>3, "name"=>"Bouteille d'eau remplie d'eau", "price"=>1],
-        ["id"=>4, "name"=>"Pass navigo d'occasion", "price"=>5],
-        ["id"=>5, "name"=>"Paquet de 10 Twix presque neuf", "price"=>4],
-        ["id"=>6, "name"=>"Courroie de distribution + pompe à eau", "price"=>80],
-        ["id"=>7, "name"=>"Naruto Tome 12", "price"=>5],
-        ["id"=>8, "name"=>"Barbecue à charbon de bois en acier inoxydable", "price"=>15]
+        ["id"=>1, "name"=>"Porte éponge en laiton", "price"=>30, "description"=>"Permet de porter les éponges et est fabriqué en laiton."],
+        ["id"=>2, "name"=>"Sac de cinq kilos de sel", "price"=>30, "description"=>"Du bon sel de mer stocké dans un bon sac de cinq bons kilos."],
+        ["id"=>3, "name"=>"Bouteille d'eau remplie d'eau", "price"=>1, "description"=>"De l'eau tout à fait normale. Rien de louche ici."],
+        ["id"=>4, "name"=>"Pass navigo d'occasion", "price"=>5, "description"=>"Utilisé seulement 3 fois entre 1995 et 2010."],
+        ["id"=>5, "name"=>"Paquet de 10 Twix presque neuf", "price"=>4, "description"=>"Il en reste quatre je crois."],
+        ["id"=>6, "name"=>"Courroie de distribution + pompe à eau", "price"=>80, "description"=>"80 mais la main d'oeuvre sera 300 environ."],
+        ["id"=>7, "name"=>"Naruto Tome 12", "price"=>5, "description"=>"Désolé on a pas les autres."],
+        ["id"=>8, "name"=>"Barbecue à charbon de bois en acier inoxydable", "price"=>15, "description"=>"Quelqu'un veut une chipo ?"]
     ];
 
     foreach($products as $p)
