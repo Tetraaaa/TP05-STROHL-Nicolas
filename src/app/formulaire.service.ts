@@ -22,4 +22,9 @@ export class FormulaireService {
     {
         return this.httpClient.get<any>("/api/products");
     }
+
+    public getProduct(id:number)
+    {
+        return this.httpClient.get<any>(`/api/product/${id}`);
+    }
 }
