@@ -17,4 +17,9 @@ export class FormulaireService {
 
         return this.httpClient.post<any>("/api/login", JSON.stringify({ "login": login, "password": password }), httpOptions);
     }
+
+    public getProducts()
+    {
+        return this.httpClient.get<any>("/api/products");
+    }
 }
