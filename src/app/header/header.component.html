@@ -3,7 +3,7 @@
         <h3>TP05-STROHL-Nicolas</h3>
         <h4>Concurrent direct du drive du super u avec le backend du super u</h4>
     </div>
-    <div style="flex:1">
+    <div *ngIf="isLoggedIn" style="flex:1">
         <p>{{productsLength}} produits dans le panier</p>
         <p>{{totalPrice}} €</p>
         <button [routerLink]="['/panier']">Accéder à mon panier</button>
