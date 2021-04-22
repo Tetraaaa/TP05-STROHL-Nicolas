@@ -17,6 +17,8 @@ import { DetailComponent } from './detail/detail.component';
 import { RegisterComponent } from './register/register.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { ApiHttpInterceptor } from './api-http-interceptor';
+import { InscriptionComponent } from './inscription/inscription.component';
+import { AccueilComponent } from './accueil/accueil.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { ApiHttpInterceptor } from './api-http-interceptor';
     PanierComponent,
     DetailComponent,
     RegisterComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    InscriptionComponent,
+    AccueilComponent
   ],
   imports: [
     BrowserModule,

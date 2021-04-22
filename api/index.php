@@ -74,6 +74,29 @@ $app->post('/api/login', function (Request $request, Response $response, array $
     return $response->withJson("Identifiants incorrects.", 400);
 });
 
+$app->post('/api/register', function (Request $request, Response $response, array $args) {
+    global $entityManager;
+
+    $parsedBody = $request->getParsedBody();
+    if(array_key_exists("login", $parsedBody) && array_key_exists("password", $parsedBody))
+    {
+        $accountRepository = $entityManager->getRepository("Account");
+        $currentAccount = $accountRepository->findOneBy(["login"=> $parsedBody["login"]]);
+        if($currentAccount) return $response->withJson("Ce nom d'utilisateur existe déjà.", 400);
+
+        $account = new Account();
+        $account->setLogin($parsedBody["login"]);
+        $account->setPassword($parsedBody["password"]);
+        $entityManager->persist($account);
+        $entityManager->flush();
+
+        return $response->withJson("Compte créé.", 201);
+    }
+    return $response->withJson("Merci de spécifier un login et un mot de passe.", 400);
+});
+
+
+
 $app->get('/api/init', function (Request $request, Response $response, array $args) {
 
     global $entityManager;

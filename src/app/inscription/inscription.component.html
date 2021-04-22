@@ -1,0 +1,16 @@
+<section>
+    <h3>S'inscrire</h3>
+    <p class="errorMessage">{{message}}</p>
+    <label>Nom d'utilisateur</label> 
+    <input [(ngModel)]="login">
+    <br/>
+    
+    <label>Mot de passe</label>
+     <input type="password" [(ngModel)]="password">
+
+     <label>Répéter le mot de passe</label>
+     <input type="password" [(ngModel)]="password2">
+    
+    <br/>
+    <button (click) ="register()">Connexion</button>
+</section>

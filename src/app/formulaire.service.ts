@@ -18,6 +18,14 @@ export class FormulaireService {
         return this.httpClient.post<any>("/api/login", JSON.stringify({ "login": login, "password": password }), httpOptions);
     }
 
+    public register(login: string, password: string): Observable<any> {
+        let httpOptions = {
+            headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+        };
+
+        return this.httpClient.post<any>("/api/register", JSON.stringify({ "login": login, "password": password }), httpOptions);
+    }
+
     public getProducts()
     {
         return this.httpClient.get<any>("/api/products");
