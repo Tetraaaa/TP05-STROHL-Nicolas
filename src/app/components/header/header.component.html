@@ -7,5 +7,6 @@
         <p>{{productsLength}} produits dans le panier</p>
         <p>{{totalPrice}} €</p>
         <button [routerLink]="['/panier']">Accéder à mon panier</button>
+        <button (click)="logout()">Se déconnecter</button>
     </div>
 </header>

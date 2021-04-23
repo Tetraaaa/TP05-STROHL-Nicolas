@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataServiceService } from '../data-service.service';
-import { FormulaireService } from '../formulaire.service';
+import { ApiService } from 'src/app/services/api-service/api.service';
 
 @Component({
   selector: 'app-catalog',
@@ -12,8 +11,8 @@ export class CatalogComponent implements OnInit {
   products:Array<any> = [];
   nameFilter:string = "";
   priceFilter:number = null;
-  constructor(private formulaireService: FormulaireService) { 
-    this.subscriber = formulaireService.getProducts().subscribe((val:any) => this.products = val)
+  constructor(private apiService: ApiService) { 
+    this.subscriber = apiService.getProducts().subscribe((val:any) => this.products = val)
   }
 
   ngOnInit(): void {

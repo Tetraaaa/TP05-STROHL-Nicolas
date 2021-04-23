@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormulaireService } from '../formulaire.service';
+import { ApiService } from 'src/app/services/api-service/api.service';
 
 @Component({
     selector: 'app-inscription',
@@ -14,7 +14,7 @@ export class InscriptionComponent implements OnInit {
     message: string = "";
     error: boolean = false;
 
-    constructor(private formulaireService: FormulaireService) { }
+    constructor(private apiService: ApiService) { }
 
     ngOnInit(): void {
     }
@@ -25,7 +25,7 @@ export class InscriptionComponent implements OnInit {
             this.error = true;
             this.message = "Les mots de passe ne correspondent pas."
         }
-        this.formulaireService.register(this.login, this.password).subscribe((flux) => {
+        this.apiService.register(this.login, this.password).subscribe((flux) => {
             this.message = "Inscription réussie."
         }, (error) => {
             this.error = error.message;

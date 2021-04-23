@@ -4,7 +4,6 @@ import { AddProduct } from 'actions/AddProduct';
 import { Product } from 'models/Product';
 import { Observable } from 'rxjs';
 import { BasketState } from 'state/Basket';
-import { DataServiceService } from '../data-service.service';
 
 @Component({
   selector: 'app-product-list',

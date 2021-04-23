@@ -1,12 +1,11 @@
-import { Injectable } from '@angular/core';
-import { Observable } from "rxjs";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
-export class FormulaireService {
+export class ApiService {
 
     constructor(private httpClient: HttpClient) { }
 
@@ -26,13 +25,11 @@ export class FormulaireService {
         return this.httpClient.post<any>("/api/register", JSON.stringify({ "login": login, "password": password }), httpOptions);
     }
 
-    public getProducts()
-    {
+    public getProducts() {
         return this.httpClient.get<any>("/api/products");
     }
 
-    public getProduct(id:number)
-    {
+    public getProduct(id: number) {
         return this.httpClient.get<any>(`/api/product/${id}`);
     }
 }

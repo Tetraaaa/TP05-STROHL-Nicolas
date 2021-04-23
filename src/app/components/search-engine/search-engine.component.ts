@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { DataServiceService } from '../data-service.service';
 
 @Component({
   selector: 'app-search-engine',
@@ -11,7 +10,7 @@ export class SearchEngineComponent implements OnInit {
   @Input() priceFilter : number = null;
   @Output() nameFilterChange = new EventEmitter();
   @Output() priceFilterChange = new EventEmitter();
-  constructor(dataService:DataServiceService) {
+  constructor() {
     
   }
 

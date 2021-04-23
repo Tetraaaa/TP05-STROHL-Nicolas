@@ -4,21 +4,22 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CatalogComponent } from './catalog/catalog.component';
-import { ProductListComponent } from './product-list/product-list.component';
-import { SearchEngineComponent } from './search-engine/search-engine.component';
+import { CatalogComponent } from './components/catalog/catalog.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { SearchEngineComponent } from './components/search-engine/search-engine.component';
 import { FormsModule } from '@angular/forms';
 import { NgxsModule } from '@ngxs/store';
 import { environment } from 'src/environments/environment';
 import { BasketState } from 'state/Basket';
-import { HeaderComponent } from './header/header.component';
-import { PanierComponent } from './panier/panier.component';
-import { DetailComponent } from './detail/detail.component';
-import { RegisterComponent } from './register/register.component';
-import { ConnexionComponent } from './connexion/connexion.component';
+import { HeaderComponent } from './components/header/header.component';
+import { PanierComponent } from './components/panier/panier.component';
+import { DetailComponent } from './components/detail/detail.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ConnexionComponent } from './components/connexion/connexion.component';
 import { ApiHttpInterceptor } from './api-http-interceptor';
-import { InscriptionComponent } from './inscription/inscription.component';
-import { AccueilComponent } from './accueil/accueil.component';
+import { InscriptionComponent } from './components/inscription/inscription.component';
+import { AccueilComponent } from './pages/accueil/accueil.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AccueilComponent } from './accueil/accueil.component';
     RegisterComponent,
     ConnexionComponent,
     InscriptionComponent,
-    AccueilComponent
+    AccueilComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
