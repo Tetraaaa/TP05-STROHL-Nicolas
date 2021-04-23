@@ -56,8 +56,28 @@ header {
     display: flex;
 }
 
-button {
+input {
+    border-radius: 8px;
+    margin: 12px;
+    border-width: 1px;
+    font-size: 1rem;
+    font-family: 'Rodin';
+}
 
+button {
+    cursor: pointer;
+    background-color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-family: 'Rodin';
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.5);
+    transition: background-color .5s;
+}
+
+button:hover {
+    background-color: rgb(236, 236, 236);
+    transition: background-color .5s;
 }
 
 #errorMessage {
