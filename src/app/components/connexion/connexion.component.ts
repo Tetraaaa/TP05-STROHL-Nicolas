@@ -20,7 +20,7 @@ export class ConnexionComponent implements OnInit {
 
     connexion() {
         this.apiService.login(this.login, this.password).subscribe((flux) => {
-            this.router.navigate(["/catalogue"]);
+            this.router.navigate(["/"]);
         }, (error) => {
             this.errorMessage = "Identifiants incorrects."
         });

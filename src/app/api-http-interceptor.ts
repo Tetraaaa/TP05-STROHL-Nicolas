@@ -30,7 +30,7 @@ export class ApiHttpInterceptor implements HttpInterceptor {
             }, (error: HttpErrorResponse) => {
                 switch (error.status) {
                     case 401:
-                        this.router.navigate(['/']);
+                        this.router.navigate(['/login']);
                         break;
                     default:
                         console.log("Ich denke dass, es ein bug gibt")

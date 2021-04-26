@@ -8,15 +8,15 @@ import { DetailComponent } from './components/detail/detail.component';
 import { PanierComponent } from './components/panier/panier.component';
 
 const routes: Routes = [
-  {path:"", component:AccueilComponent, pathMatch:"full"},
+  {path:"login", component:AccueilComponent, pathMatch:"full"},
   { 
-    path: 'home',
+    path: "",
     component: DashboardComponent,
     canActivate:[AuthGuard],
     children : [
+      {path:"", component:CatalogComponent, pathMatch:"full", canActivate:[AuthGuard]},
       {path:"panier", component:PanierComponent, pathMatch:"full", canActivate:[AuthGuard]},
       {path:"details/:id", component:DetailComponent, pathMatch:"full", canActivate:[AuthGuard]},
-      {path:"catalogue", component:CatalogComponent, pathMatch:"full", canActivate:[AuthGuard]},
     ]
   }
 ];
