@@ -1,8 +1,13 @@
-<section>
-    <label>Filtrer par nom : </label> <input name="nameFilter" [(ngModel)]="nameFilter"/>
-    <button (click)="onFilter()">Rechercher</button>
-</section>
-<section>
-    <app-product-list [products]="filteredProducts"></app-product-list>
-</section>
+<div *ngIf="loaded; else loader">
+    <section>
+        <label>Filtrer par nom : </label> <input name="nameFilter" [(ngModel)]="nameFilter"/>
+        <button (click)="onFilter()">Rechercher</button>
+    </section>
+    <section>
+        <app-product-list [products]="filteredProducts"></app-product-list>
+    </section>    
+</div>
+<ng-template #loader>
+    <app-loader></app-loader>
+</ng-template>
 

@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/services/api-service/api.service';
     styleUrls: ['./catalog.component.less']
 })
 export class CatalogComponent implements OnInit {
+    loaded:boolean = false;
     nameFilter: string = "";
     subscriber = null;
     products: Product[] = [];
@@ -18,6 +19,7 @@ export class CatalogComponent implements OnInit {
 
     ngOnInit(): void {
         this.subscriber = this.apiService.getProducts().subscribe((val: any) => {
+            this.loaded = true;
             this.products = val;
             this.filteredProducts = val;
         });

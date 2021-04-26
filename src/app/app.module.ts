@@ -19,6 +19,7 @@ import { ApiHttpInterceptor } from './api-http-interceptor';
 import { InscriptionComponent } from './components/inscription/inscription.component';
 import { AccueilComponent } from './pages/accueil/accueil.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     ConnexionComponent,
     InscriptionComponent,
     AccueilComponent,
-    DashboardComponent
+    DashboardComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
