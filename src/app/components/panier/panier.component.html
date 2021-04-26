@@ -6,7 +6,7 @@
             </tr>
         </thead>
         <tbody>
-            <h3 *ngIf="products.length==0">Votre panier est vide !</h3>
+            <h4 *ngIf="products.length==0">Votre panier est vide !</h4>
             <tr *ngFor="let product of products">
                 <td>{{product.titre}}</td>
                 <td>{{product.prix}}€</td>
