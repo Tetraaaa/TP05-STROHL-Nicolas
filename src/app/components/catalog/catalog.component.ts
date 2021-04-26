@@ -1,27 +1,31 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'models/Product';
+import { filter } from 'rxjs/operators';
 import { ApiService } from 'src/app/services/api-service/api.service';
 
 @Component({
-  selector: 'app-catalog',
-  templateUrl: './catalog.component.html',
-  styleUrls: ['./catalog.component.less']
+    selector: 'app-catalog',
+    templateUrl: './catalog.component.html',
+    styleUrls: ['./catalog.component.less']
 })
 export class CatalogComponent implements OnInit {
-  subscriber = null;
-  products:Array<any> = [];
-  nameFilter:string = "";
-  priceFilter:number = null;
-  constructor(private apiService: ApiService) { 
-    this.subscriber = apiService.getProducts().subscribe((val:any) => this.products = val)
-  }
+    nameFilter: string = "";
+    subscriber = null;
+    products: Product[] = [];
+    filteredProducts:Product[] = [];
+    constructor(private apiService: ApiService) {
+    }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+        this.subscriber = this.apiService.getProducts().subscribe((val: any) => {
+            this.products = val;
+            this.filteredProducts = val;
+        });
+    }
 
-  onFilter()
-  {
-    console.log("ben voyons")
-  }
+    onFilter() {
+        this.filteredProducts = this.products.filter((product:Product) => product.titre.includes(this.nameFilter));
+    }
 
 
 

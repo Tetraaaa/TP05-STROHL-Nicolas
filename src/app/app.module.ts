@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CatalogComponent } from './components/catalog/catalog.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
-import { SearchEngineComponent } from './components/search-engine/search-engine.component';
 import { FormsModule } from '@angular/forms';
 import { NgxsModule } from '@ngxs/store';
 import { environment } from 'src/environments/environment';
@@ -26,7 +25,6 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     AppComponent,
     CatalogComponent,
     ProductListComponent,
-    SearchEngineComponent,
     HeaderComponent,
     PanierComponent,
     DetailComponent,
