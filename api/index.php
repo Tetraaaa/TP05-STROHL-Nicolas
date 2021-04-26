@@ -121,7 +121,7 @@ $app->get('/api/init', function (Request $request, Response $response, array $ar
         
         $product->setTitre($p["name"]);
         $product->setPrix($p["price"]);
-        $product->setDescription("");
+        $product->setDescription($p["description"]);
         $entityManager->persist($product);
     }
 
